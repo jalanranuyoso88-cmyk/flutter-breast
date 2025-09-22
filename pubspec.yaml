@@ -30,7 +30,7 @@ dependencies:
   image_picker: ^1.0.4
   
   # Utils
-  intl: ^0.18.1
+  intl: ^0.20.2
   
   # Sharing functionality
   url_launcher: ^6.2.2
