@@ -239,3 +239,4 @@ Aplikasi ini hanya untuk tujuan edukasi dan screening awal. Hasil analisis tidak
 
 
 
+
