@@ -1,0 +1,338 @@
+================================================================================
+                    PANDUAN PENGGUNAAN APLIKASI BreastLens
+              Sistem Deteksi Dini Kanker Payudara Berbasis AI
+================================================================================
+
+Dibuat oleh: KangJaga
+Email: jalanranuyoso88@gmail.com
+Versi: 4.0 (2025)
+
+================================================================================
+                                DAFTAR ISI
+================================================================================
+
+1. PENDAHULUAN
+2. PERSYARATAN SISTEM
+3. CARA MENJALANKAN APLIKASI
+4. FITUR UTAMA APLIKASI
+5. PANDUAN PENGGUNAAN SETIAP FITUR
+6. TROUBLESHOOTING
+7. INFORMASI TEKNIS
+8. KONTAK & DUKUNGAN
+
+================================================================================
+                                1. PENDAHULUAN
+================================================================================
+
+Aplikasi BreastLens adalah sistem deteksi dini kanker payudara berbasis kecerdasan 
+buatan yang dikembangkan untuk membantu skrining awal. Aplikasi ini menggunakan 
+teknologi deep learning dengan arsitektur Convolutional Neural Network (CNN) 
+untuk menganalisis gambar mammogram dan memberikan prediksi kemungkinan adanya 
+kanker payudara.
+
+Tujuan utama aplikasi ini adalah memberikan akses mudah dan cepat untuk deteksi 
+dini, sehingga dapat membantu meningkatkan tingkat kesembuhan melalui penanganan 
+yang lebih awal.
+
+================================================================================
+                               2. PERSYARATAN SISTEM
+================================================================================
+
+BACKEND (Flask Server):
+- Python 3.8 atau lebih tinggi
+- Flask Framework
+- TensorFlow/Keras
+- OpenCV
+- NumPy
+- PIL (Pillow)
+
+FRONTEND (Flutter App):
+- Flutter SDK 3.0 atau lebih tinggi
+- Dart SDK 3.0 atau lebih tinggi
+- Chrome browser (untuk web version)
+- Android Studio (untuk Android development)
+- Xcode (untuk iOS development)
+
+MODEL AI:
+- File model: models/deep_learning_model.h5
+- File preprocessing: preprocessing_utils.py
+
+================================================================================
+                              3. CARA MENJALANKAN APLIKASI
+================================================================================
+
+LANGKAH 1: MENJALANKAN BACKEND SERVER
+-------------------------------------
+1. Buka terminal/command prompt
+2. Navigate ke direktori project: cd D:\coding\breastcancer_novalidator
+3. Aktifkan virtual environment (jika ada): Scripts\activate
+4. Install dependencies: pip install -r requirements.txt
+5. Jalankan server: python app.py
+6. Server akan berjalan di: http://localhost:5000
+
+LANGKAH 2: MENJALANKAN FLUTTER APP
+----------------------------------
+1. Buka terminal/command prompt
+2. Navigate ke direktori Flutter: cd D:\coding\breastcancer_novalidator\breast_cancer_flutter_app
+3. Install dependencies: flutter pub get
+4. Jalankan aplikasi:
+   - Web: flutter run -d chrome
+   - Android: flutter run -d android
+   - iOS: flutter run -d ios
+
+LANGKAH 3: VERIFIKASI KONEKSI
+-----------------------------
+1. Buka aplikasi Flutter
+2. Klik tombol "Test Koneksi" di bagian bawah
+3. Pastikan muncul pesan "Server terhubung!"
+
+================================================================================
+                                4. FITUR UTAMA APLIKASI
+================================================================================
+
+1. ANALISIS GAMBAR DENGAN AI
+   - Upload gambar dari galeri
+   - Ambil foto dengan kamera
+   - Analisis menggunakan model CNN
+   - Hasil prediksi dengan tingkat kepercayaan
+
+2. RIWAYAT ANALISIS
+   - Simpan semua hasil analisis
+   - Tampilkan detail analisis
+   - Hapus riwayat individual
+   - Auto-refresh saat membuka menu
+
+3. PANDUAN BreastLens
+   - Langkah-langkah BreastLens lengkap
+   - Pengingat bulanan BreastLens
+   - Edukasi kanker payudara
+
+4. TEMA APLIKASI
+   - Mode terang (Light Mode)
+   - Mode gelap (Dark Mode)
+   - Toggle tema real-time
+
+5. SHARING & EKSPOR
+   - Bagikan hasil analisis
+   - Ekspor ke WhatsApp, Facebook, Twitter
+   - Copy ke clipboard
+
+================================================================================
+                           5. PANDUAN PENGGUNAAN SETIAP FITUR
+================================================================================
+
+A. MENU UTAMA (HOME)
+--------------------
+1. Upload Gambar:
+   - Klik tombol "Galeri" untuk memilih dari galeri foto
+   - Klik tombol "Kamera" untuk mengambil foto baru
+   - Pastikan gambar jelas dan tidak blur
+
+2. Analisis Gambar:
+   - Setelah gambar terpilih, klik tombol "Analisis"
+   - Tunggu proses analisis selesai (akan muncul loading)
+   - Hasil akan ditampilkan dengan detail lengkap
+
+3. Hasil Analisis:
+   - Jika Non-Kanker: Pesan selamat dan saran BreastLens
+   - Jika Kanker: Peringatan dan panduan langkah selanjutnya
+   - Tingkat kepercayaan ditampilkan dalam persentase
+
+B. MENU RIWAYAT
+---------------
+1. Melihat Riwayat:
+   - Klik tab "Riwayat" di bottom navigation
+   - Semua analisis akan ditampilkan terurut berdasarkan waktu
+   - Auto-refresh setiap kali membuka menu
+
+2. Detail Analisis:
+   - Klik pada item riwayat untuk melihat detail
+   - Popup akan menampilkan:
+     * Gambar yang dianalisis
+     * Hasil prediksi lengkap
+     * Tanggal dan waktu analisis
+     * Tingkat kepercayaan
+
+3. Hapus Riwayat:
+   - Klik tombol delete (🗑️) pada item riwayat
+   - Konfirmasi penghapusan
+   - Item akan dihapus dari daftar
+
+C. MENU BreastLens
+--------------
+1. Panduan BreastLens:
+   - Klik tab "BreastLens" di bottom navigation
+   - Baca langkah-langkah BreastLens yang tersedia
+   - Ikuti panduan visual yang diberikan
+
+2. Pengingat Bulanan:
+   - Scroll ke bawah untuk melihat section "Pengingat Bulanan"
+   - Klik "Setel Pengingat BreastLens Bulanan"
+   - Sistem akan menyimpan pengingat (simulasi notifikasi)
+
+3. Edukasi Kanker Payudara:
+   - Scroll ke bagian "Pelajari tentang kanker"
+   - Klik "Edukasi Kanker Payudara"
+   - Baca informasi lengkap tentang:
+     * Pengertian kanker payudara
+     * Faktor risiko
+     * Tanda dan gejala
+     * Pencegahan
+     * Gaya hidup sehat
+     * Deteksi dini
+
+D. MENU TENTANG
+---------------
+1. Informasi Aplikasi:
+   - Klik tab "Tentang" di bottom navigation
+   - Baca informasi tentang aplikasi
+   - Lihat detail teknologi AI yang digunakan
+
+2. Informasi Developer:
+   - Scroll ke bagian "Informasi Pengembang"
+   - Kontak: jalanranuyoso88@gmail.com
+   - Informasi versi dan teknologi
+
+================================================================================
+                                 6. TROUBLESHOOTING
+================================================================================
+
+MASALAH UMUM DAN SOLUSI:
+
+1. SERVER TIDAK TERHUBUNG
+   Gejala: Pesan "Server tidak terhubung"
+   Solusi:
+   - Pastikan Flask server berjalan di terminal
+   - Cek URL server: http://localhost:5000
+   - Restart server jika perlu
+
+2. GAMBAR TIDAK TERUPLOAD
+   Gejala: Error saat memilih gambar
+   Solusi:
+   - Pastikan izin kamera/galeri sudah diberikan
+   - Coba gambar dengan ukuran lebih kecil
+   - Restart aplikasi
+
+3. ANALISIS GAGAL
+   Gejala: Error saat analisis
+   Solusi:
+   - Pastikan server Flask berjalan
+   - Cek koneksi internet
+   - Coba dengan gambar yang berbeda
+
+4. RIWAYAT TIDAK MUNCUL
+   Gejala: Riwayat kosong atau tidak update
+   Solusi:
+   - Refresh halaman riwayat
+   - Restart aplikasi
+   - Cek koneksi server
+
+5. TEMA TIDAK BERUBAH
+   Gejala: Toggle tema tidak berfungsi
+   Solusi:
+   - Restart aplikasi
+   - Cek provider state management
+
+================================================================================
+                                7. INFORMASI TEKNIS
+================================================================================
+
+ARSITEKTUR APLIKASI:
+-------------------
+Frontend: Flutter (Dart)
+Backend: Flask (Python)
+Database: Session-based (temporary)
+AI Model: TensorFlow/Keras CNN
+Image Processing: OpenCV, PIL
+
+STRUKTUR FILE:
+--------------
+breast_cancer_flutter_app/
+├── lib/
+│   ├── main.dart
+│   ├── models/
+│   ├── providers/
+│   ├── screens/
+│   ├── services/
+│   ├── widgets/
+│   └── theme/
+├── android/
+├── ios/
+└── pubspec.yaml
+
+models/
+├── deep_learning_model.h5
+└── model.pkl
+
+API ENDPOINTS:
+--------------
+- GET  /api/health - Health check
+- POST /api/predict - Analisis gambar
+- GET  /api/history - Ambil riwayat
+- DELETE /api/history/<id> - Hapus riwayat
+- GET  /api/breastlens/guide - Panduan BreastLens
+- GET  /api/about - Info aplikasi
+
+PERFORMANCE:
+------------
+- Model Accuracy: 85%+
+- Input Size: 150x150 pixels (HSV)
+- Processing Time: ~2-3 detik
+- Memory Usage: ~50MB
+
+================================================================================
+                                8. KONTAK & DUKUNGAN
+================================================================================
+
+DEVELOPER INFORMATION:
+---------------------
+Nama: KangJaga
+Email: jalanranuyoso88@gmail.com
+Project: Sistem Deteksi Dini Kanker Payudara
+Versi: 4.0 (2025)
+
+TECHNOLOGY STACK:
+-----------------
+Backend: Python, Flask, TensorFlow, OpenCV
+Frontend: Flutter, Dart
+AI/ML: Convolutional Neural Network (CNN)
+Image Processing: OpenCV, PIL
+
+SUPPORT:
+--------
+Untuk pertanyaan teknis atau bug report, silakan hubungi:
+Email: jalanranuyoso88@gmail.com
+
+DISCLAIMER:
+-----------
+Aplikasi ini adalah alat bantu skrining dan BUKAN pengganti konsultasi medis 
+profesional. Hasil prediksi harus selalu dikonfirmasi oleh tenaga medis yang 
+kompeten. Jangan menunda pemeriksaan medis berdasarkan hasil aplikasi ini.
+
+================================================================================
+                                 PENUTUP
+================================================================================
+
+Aplikasi BreastLens telah dikembangkan dengan tujuan mulia untuk membantu deteksi 
+dini kanker payudara. Dengan teknologi AI terdepan dan antarmuka yang user-friendly, 
+aplikasi ini diharapkan dapat meningkatkan kesadaran masyarakat tentang pentingnya 
+pemeriksaan payudara sendiri (BreastLens).
+
+Terima kasih telah menggunakan aplikasi BreastLens. Mari bersama-sama melawan kanker 
+payudara melalui deteksi dini yang tepat!
+
+---
+Dokumen ini dibuat untuk pegangan penggunaan aplikasi BreastLens.
+Terakhir diperbarui: Januari 2025
+================================================================================
+
+
+
+
+
+
+
+
+
+
+

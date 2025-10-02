@@ -1,0 +1,93 @@
+workflows:
+  android_release:
+    name: Android Release (APK)
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+      vars:
+        BUILD_FLAVOR: release
+    scripts:
+      - name: Show Flutter & Dart versions
+        script: |
+          flutter --version
+          dart --version
+      - name: Fetch dependencies
+        script: flutter pub get
+      - name: Build APK
+        script: flutter build apk --${BUILD_FLAVOR}
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    cache:
+      cache_paths:
+        - ~/.pub-cache
+        - ~/.gradle/caches
+        - ~/.gradle/wrapper
+
+  ios_release:
+    name: iOS Release (IPA)
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      vars:
+        BUILD_FLAVOR: release
+    scripts:
+      - name: Show Flutter & Xcode versions
+        script: |
+          flutter --version
+          xcodebuild -version
+      - name: Fetch dependencies
+        script: flutter pub get
+      - name: Build IPA
+        script: flutter build ipa --${BUILD_FLAVOR}
+    artifacts:
+      - build/ios/ipa/*.ipa
+    cache:
+      cache_paths:
+        - ~/.pub-cache
+        - ~/Library/Caches/CocoaPods
+        - ~/.gem
+    publishing:
+      app_store_connect:
+        # Konfigurasikan nilai berikut via UI Codemagic (Environment variables)
+        # dan centang "Use App Store Connect API key" pada publishing.
+        #
+        # APP_STORE_CONNECT_ISSUER_ID: Encrypted (in UI)
+        # APP_STORE_CONNECT_KEY_IDENTIFIER: Encrypted (in UI)
+        # APP_STORE_CONNECT_PRIVATE_KEY: Encrypted (in UI as file .p8)
+        #
+        # Contoh opsi publikasi:
+        submit_to_testflight: true
+        beta_groups:
+          - Internal Testers
+        # Optional: isi jika ingin otomatis membuat app (butuh metadata lengkap di App Store Connect)
+        # team_id: $APP_STORE_TEAM_ID
+
+  # Workflow gabungan untuk menjalankan Android + iOS sekaligus
+  release_all:
+    name: Release All (Android + iOS)
+    max_build_duration: 90
+    instance_type: mac_mini_m2
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+    environment:
+      flutter: stable
+    scripts:
+      - name: Flutter pub get
+        script: flutter pub get
+      - name: Build Android APK
+        script: flutter build apk --release
+      - name: Build iOS IPA
+        script: flutter build ipa --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+      - build/ios/ipa/*.ipa
+

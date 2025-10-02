@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>BreastLens</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>BreastLens</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	
+	<!-- Camera Permission -->
+	<key>NSCameraUsageDescription</key>
+	<string>BreastLens memerlukan akses kamera untuk mengambil foto untuk skrining awal. Gambar tidak disimpan secara permanen dan hanya digunakan untuk analisis real-time.</string>
+	
+	<!-- Photo Library Permission -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>BreastLens memerlukan akses galeri foto untuk memilih gambar untuk skrining awal. Gambar tidak disimpan secara permanen dan hanya digunakan untuk analisis real-time.</string>
+	
+	<!-- Notification Permission -->
+	<key>NSUserNotificationUsageDescription</key>
+	<string>BreastLens mengirim pengingat bulanan untuk melakukan pemeriksaan payudara sendiri. Notifikasi dapat dinonaktifkan kapan saja di pengaturan.</string>
+	
+	<!-- Privacy Policy -->
+	<key>NSPrivacyPolicyURL</key>
+	<string>https://breastlens.app/privacy</string>
+	
+	<!-- Privacy Usage Description -->
+	<key>NSPrivacyUsageDescription</key>
+	<string>BreastLens hanya mengumpulkan data yang diperlukan untuk fungsi aplikasi. Gambar tidak disimpan secara permanen dan data pribadi tidak dibagikan dengan pihak ketiga.</string>
+</dict>
+</plist>
+
+
+
+
+
+
+
+
+
+
+
