@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../models/sadari_guide.dart';
+import '../models/breastlens_guide.dart';
 
-class SadariStepWidget extends StatelessWidget {
-  final SadariStep step;
+class BreastLensStepWidget extends StatelessWidget {
+  final BreastLensStep step;
 
-  const SadariStepWidget({
+  const BreastLensStepWidget({
     super.key,
     required this.step,
   });
@@ -69,14 +69,5 @@ class SadariStepWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
 
 

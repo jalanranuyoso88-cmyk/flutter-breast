@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/prediction_result.dart';
 import '../models/analysis_history.dart';
-import '../models/sadari_guide.dart';
+import '../models/breastlens_guide.dart';
 import '../models/about_content.dart';
 
 class ApiService {
@@ -126,9 +126,24 @@ class ApiService {
     }
   }
   
-  static Future<SadariGuide?> getSadariGuide() async {
+  static Future<BreastLensGuide?> getBreastLensGuide() async {
     try {
-      final response = await _client.get(
+      // Coba endpoint baru terlebih dahulu
+      var response = await _client.get(
+        Uri.parse('$baseUrl/breastlens/guide'),
+        headers: {'Content-Type': 'application/json'},
+      ).timeout(const Duration(seconds: 10));
+      
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        if (data['success']) {
+          return BreastLensGuide.fromJson(data['content']);
+        }
+      }
+      
+      // Jika endpoint baru gagal, coba endpoint lama
+      print('BreastLens endpoint failed, trying SADARI endpoint...');
+      response = await _client.get(
         Uri.parse('$baseUrl/sadari/guide'),
         headers: {'Content-Type': 'application/json'},
       ).timeout(const Duration(seconds: 10));
@@ -136,12 +151,13 @@ class ApiService {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         if (data['success']) {
-          return SadariGuide.fromJson(data['content']);
+          return BreastLensGuide.fromJson(data['content']);
         }
       }
+      
       return null;
     } catch (e) {
-      print('Error in getSadariGuide: $e');
+      print('Error in getBreastLensGuide: $e');
       return null;
     }
   }

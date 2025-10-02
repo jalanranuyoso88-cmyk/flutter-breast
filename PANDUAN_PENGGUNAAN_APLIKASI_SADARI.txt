@@ -1,5 +1,5 @@
 ================================================================================
-                    PANDUAN PENGGUNAAN APLIKASI SADARI
+                    PANDUAN PENGGUNAAN APLIKASI BreastLens
               Sistem Deteksi Dini Kanker Payudara Berbasis AI
 ================================================================================
 
@@ -24,7 +24,7 @@ Versi: 4.0 (2025)
                                 1. PENDAHULUAN
 ================================================================================
 
-Aplikasi SADARI adalah sistem deteksi dini kanker payudara berbasis kecerdasan 
+Aplikasi BreastLens adalah sistem deteksi dini kanker payudara berbasis kecerdasan 
 buatan yang dikembangkan untuk membantu skrining awal. Aplikasi ini menggunakan 
 teknologi deep learning dengan arsitektur Convolutional Neural Network (CNN) 
 untuk menganalisis gambar mammogram dan memberikan prediksi kemungkinan adanya 
@@ -102,9 +102,9 @@ LANGKAH 3: VERIFIKASI KONEKSI
    - Hapus riwayat individual
    - Auto-refresh saat membuka menu
 
-3. PANDUAN SADARI
-   - Langkah-langkah SADARI lengkap
-   - Pengingat bulanan SADARI
+3. PANDUAN BreastLens
+   - Langkah-langkah BreastLens lengkap
+   - Pengingat bulanan BreastLens
    - Edukasi kanker payudara
 
 4. TEMA APLIKASI
@@ -134,7 +134,7 @@ A. MENU UTAMA (HOME)
    - Hasil akan ditampilkan dengan detail lengkap
 
 3. Hasil Analisis:
-   - Jika Non-Kanker: Pesan selamat dan saran SADARI
+   - Jika Non-Kanker: Pesan selamat dan saran BreastLens
    - Jika Kanker: Peringatan dan panduan langkah selanjutnya
    - Tingkat kepercayaan ditampilkan dalam persentase
 
@@ -158,16 +158,16 @@ B. MENU RIWAYAT
    - Konfirmasi penghapusan
    - Item akan dihapus dari daftar
 
-C. MENU SADARI
+C. MENU BreastLens
 --------------
-1. Panduan SADARI:
-   - Klik tab "SADARI" di bottom navigation
-   - Baca langkah-langkah SADARI yang tersedia
+1. Panduan BreastLens:
+   - Klik tab "BreastLens" di bottom navigation
+   - Baca langkah-langkah BreastLens yang tersedia
    - Ikuti panduan visual yang diberikan
 
 2. Pengingat Bulanan:
    - Scroll ke bawah untuk melihat section "Pengingat Bulanan"
-   - Klik "Setel Pengingat SADARI Bulanan"
+   - Klik "Setel Pengingat BreastLens Bulanan"
    - Sistem akan menyimpan pengingat (simulasi notifikasi)
 
 3. Edukasi Kanker Payudara:
@@ -270,7 +270,7 @@ API ENDPOINTS:
 - POST /api/predict - Analisis gambar
 - GET  /api/history - Ambil riwayat
 - DELETE /api/history/<id> - Hapus riwayat
-- GET  /api/sadari/guide - Panduan SADARI
+- GET  /api/breastlens/guide - Panduan BreastLens
 - GET  /api/about - Info aplikasi
 
 PERFORMANCE:
@@ -313,16 +313,16 @@ kompeten. Jangan menunda pemeriksaan medis berdasarkan hasil aplikasi ini.
                                  PENUTUP
 ================================================================================
 
-Aplikasi SADARI telah dikembangkan dengan tujuan mulia untuk membantu deteksi 
+Aplikasi BreastLens telah dikembangkan dengan tujuan mulia untuk membantu deteksi 
 dini kanker payudara. Dengan teknologi AI terdepan dan antarmuka yang user-friendly, 
 aplikasi ini diharapkan dapat meningkatkan kesadaran masyarakat tentang pentingnya 
-pemeriksaan payudara sendiri (SADARI).
+pemeriksaan payudara sendiri (BreastLens).
 
-Terima kasih telah menggunakan aplikasi SADARI. Mari bersama-sama melawan kanker 
+Terima kasih telah menggunakan aplikasi BreastLens. Mari bersama-sama melawan kanker 
 payudara melalui deteksi dini yang tepat!
 
 ---
-Dokumen ini dibuat untuk pegangan penggunaan aplikasi SADARI.
+Dokumen ini dibuat untuk pegangan penggunaan aplikasi BreastLens.
 Terakhir diperbarui: Januari 2025
 ================================================================================
 

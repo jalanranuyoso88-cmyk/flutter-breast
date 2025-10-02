@@ -1,13 +1,13 @@
-# SADARI - Deteksi Dini Kanker Payudara (Flutter App)
+# BreastLens - Deteksi Dini Kanker Payudara (Flutter App)
 
 Aplikasi Flutter untuk deteksi dini kanker payudara menggunakan teknologi AI. Aplikasi ini adalah versi mobile dari web application yang sama, memberikan pengalaman yang konsisten di platform iOS dan Android.
 
 ## 🚀 Fitur Utama
 
 - **Analisis Gambar AI**: Upload gambar dan dapatkan analisis menggunakan teknologi deep learning
-- **Panduan SADARI**: Langkah-langkah lengkap untuk melakukan pemeriksaan payudara sendiri
+- **Panduan BreastLens**: Langkah-langkah lengkap untuk melakukan pemeriksaan payudara sendiri
 - **Riwayat Analisis**: Simpan dan lihat riwayat analisis sebelumnya
-- **Pengingat Bulanan**: Notifikasi otomatis untuk mengingatkan SADARI setiap bulan
+- **Pengingat Bulanan**: Notifikasi otomatis untuk mengingatkan BreastLens setiap bulan
 - **Edukasi Kanker**: Informasi lengkap tentang faktor risiko dan gejala kanker payudara
 - **Tema Gelap/Terang**: Dukungan mode gelap dan terang
 - **Offline Support**: Beberapa fitur tetap berfungsi tanpa koneksi internet
@@ -76,7 +76,7 @@ lib/
 ├── models/                   # Data models
 │   ├── prediction_result.dart
 │   ├── analysis_history.dart
-│   ├── sadari_guide.dart
+│   ├── breastlens_guide.dart
 │   └── about_content.dart
 ├── providers/                # State management
 │   ├── app_provider.dart
@@ -86,7 +86,7 @@ lib/
 │   ├── main_navigation.dart
 │   ├── home_screen.dart
 │   ├── history_screen.dart
-│   ├── sadari_guide_screen.dart
+│   ├── breastlens_guide_screen.dart
 │   ├── about_screen.dart
 │   └── error_screen.dart
 ├── services/                 # API & services
@@ -97,7 +97,7 @@ lib/
 │   ├── result_display_widget.dart
 │   ├── loading_widget.dart
 │   ├── history_item_widget.dart
-│   ├── sadari_step_widget.dart
+│   ├── breastlens_step_widget.dart
 │   ├── risk_factor_widget.dart
 │   └── symptom_widget.dart
 └── theme/
@@ -116,7 +116,7 @@ Server backend harus berjalan dan dapat diakses dari device/emulator. Pastikan:
    - `POST /api/predict` - Image prediction
    - `GET /api/history` - Get analysis history
    - `DELETE /api/history/{id}` - Delete history item
-   - `GET /api/sadari/guide` - Get SADARI guide
+   - `GET /api/breastlens/guide` - Get BreastLens guide
    - `GET /api/about` - Get about content
 
 ### Notification Configuration
@@ -203,7 +203,7 @@ flutter build ios --release
 ### Version 1.0.0
 - Initial release
 - Basic image analysis functionality
-- SADARI guide implementation
+- BreastLens guide implementation
 - History tracking
 - Monthly reminder notifications
 - Dark/light theme support

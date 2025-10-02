@@ -29,7 +29,7 @@ class PredictionResult {
     };
   }
   
-  bool get isCancer => label == 'Cancer';
+  bool get isCancer => label.toLowerCase() == 'cancer' || label.toLowerCase() == 'malignant';
   String get confidenceText => '${confidence.toStringAsFixed(1)}%';
   String get resultText => isCancer ? 'Kanker Terdeteksi' : 'Tidak Ada Kanker';
 }

@@ -112,10 +112,12 @@ class _SplashScreenState extends State<SplashScreen>
                             ),
                           ],
                         ),
-                        child: const Icon(
-                          Icons.favorite,
-                          size: 60,
-                          color: Color(0xFFE91E63),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(25),
+                          child: Image.asset(
+                            'assets/icon.png',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       
@@ -123,7 +125,7 @@ class _SplashScreenState extends State<SplashScreen>
                       
                       // App Title
                       Text(
-                        'SADARI',
+                        'BreastLens',
                         style: Theme.of(context).textTheme.displayLarge?.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

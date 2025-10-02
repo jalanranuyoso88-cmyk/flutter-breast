@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../models/prediction_result.dart';
 import '../screens/breast_cancer_education_screen.dart';
-import '../screens/sadari_guide_screen.dart';
+import '../screens/breast_lens_guide_screen.dart';
 
 class ResultDisplayWidget extends StatelessWidget {
   final PredictionResult result;
@@ -128,7 +128,7 @@ class ResultDisplayWidget extends StatelessWidget {
                   child: Text(
                     isCancer 
                         ? 'Penting! Berdasarkan analisis kami, terdeteksi adanya indikasi yang mengarah ke kanker pada foto Anda.'
-                        : 'Selamat! Berdasarkan analisis kami, tidak terdeteksi adanya indikasi kanker pada foto Anda. Tetaplah proaktif dalam menjaga kesehatan payudara Anda!',
+                        : 'Berdasarkan analisis kami, tidak terdeteksi indikasi kanker pada foto Anda. Tetap lakukan pemeriksaan rutin.',
                     style: TextStyle(
                       fontSize: 16,
                       color: isDarkMode ? Colors.white : Colors.black,
@@ -213,13 +213,75 @@ class ResultDisplayWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Hasil ini bukan diagnosis akhir. Anggap sebagai peringatan awal. Tetap tenang, dan segera berkonsultasi dengan tenaga medis profesional untuk pemeriksaan lanjutan.',
+                          'Hasil ini adalah skrining awal menggunakan teknologi AI dan BUKAN diagnosis medis. Selalu konsultasikan dengan dokter untuk evaluasi profesional dan diagnosis yang akurat.',
                           style: TextStyle(
                             fontSize: 14,
                             color: isDarkMode ? Colors.white : Colors.black,
                             height: 1.5,
                           ),
                           textAlign: TextAlign.justify,
+                        ),
+                        const SizedBox(height: 8),
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.red.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: Colors.red.withOpacity(0.3),
+                              width: 1,
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              Text(
+                                'PENTING: Aplikasi ini hanya untuk skrining awal dan edukasi. Selalu konsultasikan dengan dokter untuk evaluasi medis profesional.',
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.4,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 8),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/breast-cancer-education');
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                  decoration: BoxDecoration(
+                                    color: Colors.red.withOpacity(0.1),
+                                    borderRadius: BorderRadius.circular(6),
+                                    border: Border.all(
+                                      color: Colors.red.withOpacity(0.3),
+                                      width: 1,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.library_books,
+                                        size: 12,
+                                        color: Colors.red,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        'Lihat Sumber Medis',
+                                        style: TextStyle(
+                                          fontSize: 9,
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -259,8 +321,8 @@ class ResultDisplayWidget extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 12),
-                        _buildStepItem('1. Segera ke Dokter', 'Buat janji dengan dokter spesialis onkologi atau bedah', context),
-                        _buildStepItem('2. Lakukan Pemeriksaan Lanjutan', 'Dokter akan merekomendasikan pemeriksaan lanjutan seperti mammografi, USG, atau biopsi untuk diagnosis yang pasti', context),
+                        _buildStepItem('1. Konsultasi dengan Dokter', 'Buat janji dengan dokter untuk evaluasi profesional', context),
+                        _buildStepItem('2. Evaluasi Medis Lengkap', 'Dokter akan melakukan pemeriksaan klinis dan merekomendasikan tes yang sesuai jika diperlukan', context),
                       ],
                     ),
                   ),
@@ -299,7 +361,7 @@ class ResultDisplayWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Jangan terlena! Deteksi dini adalah kunci. Lakukan SADARI (Periksa Payudara Sendiri) setiap bulan dan jaga gaya hidup sehat.',
+                          'Jangan terlena! Deteksi dini adalah kunci. Lakukan BreastLens (Periksa Payudara Sendiri) setiap bulan dan jaga gaya hidup sehat.',
                           style: TextStyle(
                             fontSize: 14,
                             color: isDarkMode ? Colors.white : Colors.black,
@@ -353,12 +415,12 @@ class ResultDisplayWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SadariGuideScreen(),
+                          builder: (context) => const BreastLensGuideScreen(),
                         ),
                       );
                     },
                     icon: const Icon(Icons.self_improvement),
-                    label: const Text('Pelajari Cara SADARI'),
+                    label: const Text('Pelajari Cara BreastLens'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                       foregroundColor: Colors.white,

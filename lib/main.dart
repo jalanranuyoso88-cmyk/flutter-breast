@@ -7,6 +7,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'providers/app_provider.dart';
 import 'providers/notification_provider.dart';
 import 'screens/splash_screen.dart';
+import 'screens/breast_cancer_education_screen.dart';
 import 'theme/app_theme.dart';
 import 'services/notification_service.dart';
 
@@ -51,12 +52,15 @@ class BreastCancerApp extends StatelessWidget {
       child: Consumer<AppProvider>(
         builder: (context, appProvider, child) {
           return MaterialApp(
-            title: 'SADARI - Deteksi Dini Kanker Payudara',
+            title: 'BreastLens - Deteksi Dini Kanker Payudara',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: appProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
             home: const SplashScreen(),
+            routes: {
+              '/breast-cancer-education': (context) => const BreastCancerEducationScreen(),
+            },
             localizationsDelegates: const [
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,

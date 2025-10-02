@@ -3,15 +3,15 @@ import '../services/api_service.dart';
 import '../services/notification_service.dart';
 import 'breast_cancer_education_screen.dart';
 
-class SadariGuideScreen extends StatefulWidget {
-  const SadariGuideScreen({super.key});
+class BreastLensGuideScreen extends StatefulWidget {
+  const BreastLensGuideScreen({super.key});
 
   @override
-  State<SadariGuideScreen> createState() => _SadariGuideScreenState();
+  State<BreastLensGuideScreen> createState() => _BreastLensGuideScreenState();
 }
 
-class _SadariGuideScreenState extends State<SadariGuideScreen> {
-  Map<String, dynamic>? _sadariGuide;
+class _BreastLensGuideScreenState extends State<BreastLensGuideScreen> {
+  Map<String, dynamic>? _breastlensGuide;
   bool _isLoading = true;
   String? _errorMessage;
   bool _isReminderEnabled = false;
@@ -20,7 +20,7 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
   @override
   void initState() {
     super.initState();
-    _loadSadariGuide();
+    _loadBreastLensGuide();
     _loadReminderStatus();
   }
 
@@ -36,28 +36,93 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
     }
   }
 
-  Future<void> _loadSadariGuide() async {
+  Future<void> _loadBreastLensGuide() async {
     setState(() {
       _isLoading = true;
       _errorMessage = null;
     });
 
     try {
-      final guide = await ApiService.getSadariGuide();
+      final guide = await ApiService.getBreastLensGuide();
       if (mounted) {
         setState(() {
-          _sadariGuide = guide?.toJson();
+          _breastlensGuide = guide?.toJson() ?? _getFallbackGuideData();
           _isLoading = false;
         });
       }
     } catch (e) {
       if (mounted) {
+        // Jika API gagal, gunakan data fallback
         setState(() {
-          _errorMessage = e.toString();
+          _breastlensGuide = _getFallbackGuideData();
           _isLoading = false;
         });
       }
     }
+  }
+
+  Map<String, dynamic> _getFallbackGuideData() {
+    return {
+      'title': 'Panduan BreastLens',
+      'description': 'BreastLens adalah metode sederhana yang bisa Anda lakukan sendiri setiap bulan. Lakukan seminggu setelah menstruasi selesai.',
+      'steps': [
+        {
+          'number': 1,
+          'title': 'Lihat',
+          'description': 'Berdiri di depan cermin, perhatikan perubahan bentuk, ukuran, atau kulit payudara.'
+        },
+        {
+          'number': 2,
+          'title': 'Angkat Tangan',
+          'description': 'Angkat kedua tangan di atas kepala dan perhatikan apakah ada kerutan atau tarikan.'
+        },
+        {
+          'number': 3,
+          'title': 'Raba',
+          'description': 'Gunakan tiga jari, raba seluruh area payudara dan ketiak. Rasakan jika ada benjolan atau penebalan yang tidak biasa.'
+        }
+      ],
+      'cancer_education': {
+        'title': 'Edukasi Kanker Payudara',
+        'description': 'Penting untuk memahami faktor risiko dan gejala kanker payudara untuk deteksi dini yang lebih baik.',
+        'risk_factors': [
+          {
+            'name': 'Usia',
+            'description': 'Risiko meningkat seiring bertambahnya usia, terutama setelah 50 tahun'
+          },
+          {
+            'name': 'Riwayat Keluarga',
+            'description': 'Memiliki keluarga dengan riwayat kanker payudara atau ovarium'
+          },
+          {
+            'name': 'Genetik',
+            'description': 'Mutasi gen BRCA1 atau BRCA2'
+          },
+          {
+            'name': 'Hormon',
+            'description': 'Terapi hormon jangka panjang atau menstruasi dini'
+          }
+        ],
+        'symptoms': [
+          {
+            'name': 'Benjolan',
+            'description': 'Benjolan keras yang tidak hilang setelah menstruasi'
+          },
+          {
+            'name': 'Perubahan Ukuran',
+            'description': 'Perubahan ukuran atau bentuk payudara'
+          },
+          {
+            'name': 'Kulit Berubah',
+            'description': 'Kulit payudara berkerut, kemerahan, atau bersisik'
+          },
+          {
+            'name': 'Nyeri',
+            'description': 'Nyeri payudara yang tidak biasa atau persisten'
+          }
+        ]
+      }
+    };
   }
 
   Future<void> _setMonthlyReminder() async {
@@ -67,10 +132,10 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
       if (mounted) {
         if (success) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Pengingat SADARI bulanan berhasil diaktifkan!'),
-              backgroundColor: Colors.green,
-            ),
+          const SnackBar(
+            content: Text('Pengingat BreastLens bulanan berhasil diaktifkan!'),
+            backgroundColor: Colors.green,
+          ),
           );
           await _loadReminderStatus();
         } else {
@@ -100,10 +165,10 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
       
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Pengingat SADARI bulanan dibatalkan.'),
-            backgroundColor: Colors.orange,
-          ),
+        const SnackBar(
+          content: Text('Pengingat BreastLens bulanan dibatalkan.'),
+          backgroundColor: Colors.orange,
+        ),
         );
         await _loadReminderStatus();
       }
@@ -124,7 +189,7 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Panduan SADARI',
+          'Panduan BreastLens',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -148,7 +213,7 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh, color: Colors.white),
-            onPressed: _loadSadariGuide,
+            onPressed: _loadBreastLensGuide,
           ),
         ],
       ),
@@ -193,7 +258,7 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: _loadSadariGuide,
+              onPressed: _loadBreastLensGuide,
               child: const Text('Coba Lagi'),
             ),
           ],
@@ -201,7 +266,7 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
       );
     }
 
-    if (_sadariGuide == null) {
+    if (_breastlensGuide == null) {
       return const Center(
         child: Text('Tidak dapat memuat panduan'),
       );
@@ -210,59 +275,70 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Header Section
-          Container(
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).primaryColor.withOpacity(0.1),
-                  Theme.of(context).primaryColor.withOpacity(0.05),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+          Center(
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 400),
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Theme.of(context).primaryColor.withOpacity(0.1),
+                    Theme.of(context).primaryColor.withOpacity(0.05),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(16),
               ),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Column(
-              children: [
-                Icon(
-                  Icons.favorite,
-                  size: 48,
-                  color: Theme.of(context).primaryColor,
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  _sadariGuide!['title'] ?? 'Panduan SADARI',
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    'assets/icon.png',
+                    width: 48,
+                    height: 48,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  _sadariGuide!['description'] ?? 'Panduan lengkap SADARI',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'Panduan BreastLens',
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'Panduan lengkap BreastLens',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           
           const SizedBox(height: 24),
           
           // Steps Section
-          if (_sadariGuide!['steps'] != null) ...[
+          if (_breastlensGuide!['steps'] != null) ...[
             Text(
-              'Langkah-Langkah SADARI',
+              'Langkah-Langkah BreastLens',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 16),
-            ...(_sadariGuide!['steps'] as List).map((step) => Card(
+            ...(_breastlensGuide!['steps'] as List).map((step) => Card(
               margin: const EdgeInsets.only(bottom: 12),
               child: ListTile(
                 leading: CircleAvatar(
@@ -352,7 +428,7 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
           
           // Message
           Text(
-            'Jangan lupa untuk melakukan SADARI setiap\nbulan!',
+            'Jangan lupa untuk melakukan BreastLens setiap\nbulan!',
             style: TextStyle(
               fontSize: 16,
               color: isDarkMode ? Colors.white : Colors.black,
@@ -461,7 +537,7 @@ class _SadariGuideScreenState extends State<SadariGuideScreen> {
                   ),
                 ),
                 label: const Text(
-                  'Setel Pengingat SADARI Bulanan',
+                  'Setel Pengingat BreastLens Bulanan',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

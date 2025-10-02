@@ -120,15 +120,19 @@ class AboutScreen extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(
-              Icons.favorite,
-              color: Colors.white,
-              size: 40,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                'assets/icon.png',
+                width: 80,
+                height: 80,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
           const SizedBox(height: 20),
           Text(
-            'Sistem Deteksi Dini Kanker Payudara',
+            'BreastLens',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -138,7 +142,7 @@ class AboutScreen extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'Version 4.0.5',
+            'Version 4.0.6',
             style: TextStyle(
               fontSize: 14,
               color: isDarkMode ? Colors.grey.shade300 : Colors.grey.shade600,
@@ -215,7 +219,7 @@ class AboutScreen extends StatelessWidget {
             children: [
               _buildLogoCard('assets/kemdikbud.png', 'Tut Wuri Handayani', context),
               const SizedBox(width: 16),
-              _buildLogoCard('assets/umbj.png', 'Universitas Mercu Bakti Jaya', context),
+              _buildLogoCard('assets/umbj.png', 'Universitas Mercubaktijaya', context),
             ],
           ),
         ],
@@ -511,7 +515,7 @@ class AboutScreen extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'Aplikasi Sistem Deteksi Dini Kanker Payudara adalah sistem deteksi dini kanker payudara berbasis kecerdasan buatan yang dikembangkan untuk membantu skrining awal.',
+                'BreastLens adalah aplikasi deteksi dini kanker payudara berbasis kecerdasan buatan yang dikembangkan untuk membantu skrining awal.',
                 style: TextStyle(
                   fontSize: 15,
                   color: isDarkMode ? Colors.white : Colors.black87,
@@ -947,9 +951,95 @@ class AboutScreen extends StatelessWidget {
           _buildPrivacyItem('Session Based:', 'Data terisolasi per pengguna dan perangkat', context),
           _buildPrivacyItem('No Sharing:', 'Data tidak dibagikan dengan pihak ketiga', context),
           _buildPrivacyItem('Auto Cleanup:', 'File temporary otomatis dibersihkan', context),
-          
+
           const SizedBox(height: 16),
-          
+
+          // Privacy Policy Link
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.blue.withOpacity(0.05),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: Colors.blue.withOpacity(0.2),
+                width: 1,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Kebijakan Privasi Lengkap',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: isDarkMode ? Colors.white : Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Untuk informasi lebih detail tentang kebijakan privasi aplikasi ini, silakan kunjungi:',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: isDarkMode ? Colors.grey.shade300 : Colors.grey.shade600,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                InkWell(
+                  onTap: () async {
+                    // TODO: Replace with actual privacy policy URL
+                    const url = 'https://your-privacy-policy-url.com';
+                    // For now, show a dialog since URL is placeholder
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Kebijakan Privasi'),
+                        content: const Text(
+                          'Kebijakan privasi lengkap akan tersedia di situs resmi aplikasi. '
+                          'Sementara ini, semua data pengguna disimpan secara lokal dan tidak dibagikan ke pihak ketiga.',
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text('Tutup'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.open_in_new,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          'Baca Kebijakan Privasi',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
+
           // Keamanan Teknis
           Text(
             'Keamanan Teknis:',
@@ -971,7 +1061,7 @@ class AboutScreen extends StatelessWidget {
 
   Widget _buildMedicalDisclaimerSection(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    
+
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -1020,7 +1110,7 @@ class AboutScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-          
+
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(16),
@@ -1052,9 +1142,9 @@ class AboutScreen extends StatelessWidget {
               ],
             ),
           ),
-          
+
           const SizedBox(height: 16),
-          
+
           // Warning Box
           Container(
             width: double.infinity,
@@ -1083,6 +1173,61 @@ class AboutScreen extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+
+          const SizedBox(height: 20),
+
+          // Citations Section
+          Row(
+            children: [
+              Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const Icon(
+                  Icons.library_books,
+                  color: Colors.white,
+                  size: 16,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Text(
+                'Sumber Medis Terpercaya',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          _buildCitationItem(
+            'World Health Organization (WHO)',
+            'Breast Cancer Facts & Figures',
+            'https://www.who.int/news-room/fact-sheets/detail/breast-cancer',
+            context,
+          ),
+          _buildCitationItem(
+            'American Cancer Society',
+            'Breast Cancer Risk Factors',
+            'https://www.cancer.org/cancer/types/breast-cancer/risk-and-prevention.html',
+            context,
+          ),
+          _buildCitationItem(
+            'Kementerian Kesehatan Republik Indonesia',
+            'Panduan Deteksi Dini Kanker Payudara',
+            'https://www.kemkes.go.id/',
+            context,
+          ),
+          _buildCitationItem(
+            'Mayo Clinic',
+            'Breast Cancer Symptoms & Causes',
+            'https://www.mayoclinic.org/diseases-conditions/breast-cancer/symptoms-causes/syc-20352470',
+            context,
           ),
         ],
       ),
@@ -1151,7 +1296,7 @@ class AboutScreen extends StatelessWidget {
               children: [
                 _buildDeveloperInfo('Developed by:', 'KangJaga', context),
                 _buildDeveloperInfo('Contact:', 'jalanranuyoso88@gmail.com', context),
-                _buildDeveloperInfo('Version:', '4.0.5 (2025)', context),
+                _buildDeveloperInfo('Version:', '4.0.6 (2025)', context),
               ],
             ),
           ),
@@ -1192,10 +1337,14 @@ class AboutScreen extends StatelessWidget {
                         color: Colors.white.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: const Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                        size: 20,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(18),
+                        child: Image.asset(
+                          'assets/icon.png',
+                          width: 40,
+                          height: 40,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 16),
@@ -1550,7 +1699,7 @@ class AboutScreen extends StatelessWidget {
 
   Widget _buildDeveloperInfo(String label, String value, BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -1575,6 +1724,53 @@ class AboutScreen extends StatelessWidget {
                 color: isDarkMode ? Colors.white : Colors.black,
                 fontSize: 14,
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCitationItem(String organization, String title, String url, BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: isDarkMode ? Colors.grey.shade700 : Colors.grey.shade50,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: isDarkMode ? Colors.grey.shade600 : Colors.grey.shade300,
+          width: 1,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            organization,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: isDarkMode ? Colors.white : Colors.black,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 13,
+              color: isDarkMode ? Colors.grey.shade300 : Colors.grey.shade700,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            url,
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.blue,
+              decoration: TextDecoration.underline,
             ),
           ),
         ],

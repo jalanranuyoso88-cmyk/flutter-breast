@@ -1,22 +1,22 @@
-class SadariGuide {
+class BreastLensGuide {
   final String title;
   final String description;
-  final List<SadariStep> steps;
+  final List<BreastLensStep> steps;
   final CancerEducation cancerEducation;
   
-  SadariGuide({
+  BreastLensGuide({
     required this.title,
     required this.description,
     required this.steps,
     required this.cancerEducation,
   });
   
-  factory SadariGuide.fromJson(Map<String, dynamic> json) {
-    return SadariGuide(
+  factory BreastLensGuide.fromJson(Map<String, dynamic> json) {
+    return BreastLensGuide(
       title: json['title'],
       description: json['description'],
       steps: (json['steps'] as List)
-          .map((step) => SadariStep.fromJson(step))
+          .map((step) => BreastLensStep.fromJson(step))
           .toList(),
       cancerEducation: CancerEducation.fromJson(json['cancer_education']),
     );
@@ -32,21 +32,21 @@ class SadariGuide {
   }
 }
 
-class SadariStep {
+class BreastLensStep {
   final int number;
   final String title;
   final String description;
   final String icon;
   
-  SadariStep({
+  BreastLensStep({
     required this.number,
     required this.title,
     required this.description,
     required this.icon,
   });
   
-  factory SadariStep.fromJson(Map<String, dynamic> json) {
-    return SadariStep(
+  factory BreastLensStep.fromJson(Map<String, dynamic> json) {
+    return BreastLensStep(
       number: json['number'],
       title: json['title'],
       description: json['description'],
@@ -147,3 +147,5 @@ class Symptom {
     };
   }
 }
+
+

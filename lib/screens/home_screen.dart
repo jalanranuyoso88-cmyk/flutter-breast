@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'SADARI',
+          'BreastLens',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -193,10 +193,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Column(
                 children: [
-                  Icon(
-                    Icons.favorite,
-                    size: 48,
-                    color: Theme.of(context).primaryColor,
+                  Image.asset(
+                    'assets/icon.png',
+                    width: 48,
+                    height: 48,
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -347,6 +347,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 24),
             ],
+            
+            // Medical Disclaimer
+            _buildMedicalDisclaimer(context),
+            
+            const SizedBox(height: 24),
             
             // Tips & Panduan Singkat
             _buildTipsSection(context),
@@ -631,6 +636,93 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMedicalDisclaimer(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.orange.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Colors.orange.withOpacity(0.3),
+          width: 2,
+        ),
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              const Icon(
+                Icons.warning_amber_rounded,
+                color: Colors.orange,
+                size: 24,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  'Peringatan Medis',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            'Aplikasi ini hanya untuk skrining awal dan edukasi. BUKAN pengganti konsultasi medis profesional. Selalu konsultasikan dengan dokter untuk evaluasi dan diagnosis yang akurat.',
+            style: TextStyle(
+              fontSize: 13,
+              color: isDarkMode ? Colors.white : Colors.black,
+              height: 1.4,
+            ),
+            textAlign: TextAlign.justify,
+          ),
+          const SizedBox(height: 8),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/breast-cancer-education');
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              decoration: BoxDecoration(
+                color: Colors.blue.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: Colors.blue.withOpacity(0.3),
+                  width: 1,
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.library_books,
+                    size: 14,
+                    color: Colors.blue,
+                  ),
+                  const SizedBox(width: 6),
+                  Text(
+                    'Lihat Sumber Medis',
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

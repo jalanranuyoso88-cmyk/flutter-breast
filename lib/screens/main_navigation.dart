@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'history_screen.dart';
-import 'sadari_guide_screen.dart';
+import 'breast_lens_guide_screen.dart';
 import 'about_screen.dart';
 
 class MainNavigation extends StatefulWidget {
@@ -23,7 +23,7 @@ class _MainNavigationState extends State<MainNavigation> {
     _screens = [
       const HomeScreen(),
       HistoryScreen(key: _historyScreenKey),
-      const SadariGuideScreen(),
+      const BreastLensGuideScreen(),
       const AboutScreen(),
     ];
   }
@@ -69,7 +69,7 @@ class _MainNavigationState extends State<MainNavigation> {
             fontWeight: FontWeight.normal,
             fontSize: 12,
           ),
-          items: const [
+          items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),
               activeIcon: Icon(Icons.home),
@@ -81,9 +81,17 @@ class _MainNavigationState extends State<MainNavigation> {
               label: 'History',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_outline),
-              activeIcon: Icon(Icons.favorite),
-              label: 'SADARI',
+              icon: Image.asset(
+                'assets/icon.png',
+                width: 24,
+                height: 24,
+              ),
+              activeIcon: Image.asset(
+                'assets/icon.png',
+                width: 24,
+                height: 24,
+              ),
+              label: 'BreastLens',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.info_outline),

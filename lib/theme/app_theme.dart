@@ -7,7 +7,7 @@ class AppTheme {
   static const Color accentColor = Color(0xFF4CAF50);
   static const Color warningColor = Color(0xFFFF9800);
   static const Color errorColor = Color(0xFFF44336);
-  
+
   // Neutral colors
   static const Color backgroundColor = Color(0xFFFFFFFF);
   static const Color surfaceColor = Color(0xFFF5F5F5);
@@ -15,7 +15,7 @@ class AppTheme {
   static const Color textPrimary = Color(0xFF212121);
   static const Color textSecondary = Color(0xFF757575);
   static const Color textHint = Color(0xFFBDBDBD);
-  
+
   // Dark theme colors
   static const Color darkBackgroundColor = Color(0xFF121212);
   static const Color darkSurfaceColor = Color(0xFF1E1E1E);
@@ -24,6 +24,9 @@ class AppTheme {
   static const Color darkTextSecondary = Color(0xFFB3B3B3);
   static const Color darkTextHint = Color(0xFF666666);
 
+  // iOS compatible font family
+  static const String _fontFamily = 'System'; // Use system font for iOS compatibility
+
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
@@ -31,6 +34,8 @@ class AppTheme {
       primarySwatch: Colors.pink,
       primaryColor: primaryColor,
       scaffoldBackgroundColor: backgroundColor,
+      // iOS specific compatibility
+      platform: TargetPlatform.iOS,
       
       // App Bar Theme
       appBarTheme: const AppBarTheme(
@@ -41,13 +46,13 @@ class AppTheme {
           color: textPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         iconTheme: IconThemeData(color: textPrimary),
       ),
       
       // Card Theme
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: cardColor,
         elevation: 4,
         shadowColor: Colors.black.withOpacity(0.1),
@@ -70,7 +75,7 @@ class AppTheme {
           textStyle: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            fontFamily: 'Inter',
+            fontFamily: _fontFamily,
           ),
         ),
       ),
@@ -82,7 +87,7 @@ class AppTheme {
           textStyle: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            fontFamily: 'Inter',
+            fontFamily: _fontFamily,
           ),
         ),
       ),
@@ -116,91 +121,91 @@ class AppTheme {
           color: textPrimary,
           fontSize: 32,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         displayMedium: TextStyle(
           color: textPrimary,
           fontSize: 28,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         displaySmall: TextStyle(
           color: textPrimary,
           fontSize: 24,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         headlineLarge: TextStyle(
           color: textPrimary,
           fontSize: 22,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         headlineMedium: TextStyle(
           color: textPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         headlineSmall: TextStyle(
           color: textPrimary,
           fontSize: 18,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         titleLarge: TextStyle(
           color: textPrimary,
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         titleMedium: TextStyle(
           color: textPrimary,
           fontSize: 14,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         titleSmall: TextStyle(
           color: textPrimary,
           fontSize: 12,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         bodyLarge: TextStyle(
           color: textPrimary,
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         bodyMedium: TextStyle(
           color: textSecondary,
           fontSize: 14,
           fontWeight: FontWeight.normal,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         bodySmall: TextStyle(
           color: textSecondary,
           fontSize: 12,
           fontWeight: FontWeight.normal,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         labelLarge: TextStyle(
           color: textPrimary,
           fontSize: 14,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         labelMedium: TextStyle(
           color: textSecondary,
           fontSize: 12,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         labelSmall: TextStyle(
           color: textHint,
           fontSize: 10,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
       ),
       
@@ -227,6 +232,8 @@ class AppTheme {
       primarySwatch: Colors.pink,
       primaryColor: primaryColor,
       scaffoldBackgroundColor: darkBackgroundColor,
+      // iOS specific compatibility
+      platform: TargetPlatform.iOS,
       
       // App Bar Theme
       appBarTheme: const AppBarTheme(
@@ -237,13 +244,13 @@ class AppTheme {
           color: darkTextPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         iconTheme: IconThemeData(color: darkTextPrimary),
       ),
       
       // Card Theme
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: darkCardColor,
         elevation: 4,
         shadowColor: Colors.black.withOpacity(0.3),
@@ -266,7 +273,7 @@ class AppTheme {
           textStyle: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            fontFamily: 'Inter',
+            fontFamily: _fontFamily,
           ),
         ),
       ),
@@ -277,91 +284,91 @@ class AppTheme {
           color: darkTextPrimary,
           fontSize: 32,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         displayMedium: TextStyle(
           color: darkTextPrimary,
           fontSize: 28,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         displaySmall: TextStyle(
           color: darkTextPrimary,
           fontSize: 24,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         headlineLarge: TextStyle(
           color: darkTextPrimary,
           fontSize: 22,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         headlineMedium: TextStyle(
           color: darkTextPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         headlineSmall: TextStyle(
           color: darkTextPrimary,
           fontSize: 18,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         titleLarge: TextStyle(
           color: darkTextPrimary,
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         titleMedium: TextStyle(
           color: darkTextPrimary,
           fontSize: 14,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         titleSmall: TextStyle(
           color: darkTextPrimary,
           fontSize: 12,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         bodyLarge: TextStyle(
           color: darkTextPrimary,
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         bodyMedium: TextStyle(
           color: darkTextSecondary,
           fontSize: 14,
           fontWeight: FontWeight.normal,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         bodySmall: TextStyle(
           color: darkTextSecondary,
           fontSize: 12,
           fontWeight: FontWeight.normal,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         labelLarge: TextStyle(
           color: darkTextPrimary,
           fontSize: 14,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         labelMedium: TextStyle(
           color: darkTextSecondary,
           fontSize: 12,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
         labelSmall: TextStyle(
           color: darkTextHint,
           fontSize: 10,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          fontFamily: _fontFamily,
         ),
       ),
       

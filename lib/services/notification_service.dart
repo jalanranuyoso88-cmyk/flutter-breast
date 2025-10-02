@@ -1,15 +1,15 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NotificationService {
-  static const String _reminderKey = 'sadari_reminder_enabled';
-  static const String _nextReminderKey = 'next_sadari_reminder';
+  static const String _reminderKey = 'breastlens_reminder_enabled';
+  static const String _nextReminderKey = 'next_breastlens_reminder';
 
   // Initialize notifications (simplified version)
   static Future<void> initialize() async {
     print('NotificationService initialized (simplified version)');
   }
 
-  // Set up monthly SADARI reminder (simplified version)
+  // Set up monthly BreastLens reminder (simplified version)
   static Future<bool> setMonthlyReminder() async {
     try {
       // Save reminder status
@@ -20,11 +20,11 @@ class NotificationService {
       final nextReminder = DateTime.now().add(const Duration(days: 30));
       await prefs.setString(_nextReminderKey, nextReminder.toIso8601String());
       
-      print('Monthly SADARI reminder set successfully (simplified)');
+      print('Monthly BreastLens reminder set successfully (simplified)');
       
       // Show success message (simulated notification)
-      print('🔔 NOTIFICATION: Pengingat Bulanan SADARI');
-      print('📅 Jangan lupa untuk melakukan SADARI setiap bulan!');
+      print('🔔 NOTIFICATION: Pengingat Bulanan BreastLens');
+      print('📅 Jangan lupa untuk melakukan BreastLens setiap bulan!');
       print('⏰ Waktu yang tepat untuk memeriksa kesehatan payudara Anda.');
       
       return true;
@@ -41,7 +41,7 @@ class NotificationService {
       await prefs.setBool(_reminderKey, false);
       await prefs.remove(_nextReminderKey);
       
-      print('Monthly SADARI reminder cancelled');
+      print('Monthly BreastLens reminder cancelled');
     } catch (e) {
       print('Error cancelling monthly reminder: $e');
     }
@@ -70,8 +70,8 @@ class NotificationService {
 
   // Show test notification (simulated)
   static Future<void> showTestNotification() async {
-    print('🔔 TEST NOTIFICATION: Pengingat Bulanan SADARI');
-    print('📅 Jangan lupa untuk melakukan SADARI setiap bulan!');
+    print('🔔 TEST NOTIFICATION: Pengingat Bulanan BreastLens');
+    print('📅 Jangan lupa untuk melakukan BreastLens setiap bulan!');
     print('⏰ Waktu yang tepat untuk memeriksa kesehatan payudara Anda.');
   }
 }

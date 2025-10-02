@@ -6,7 +6,7 @@ class BreastCancerEducationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    
+
     return Scaffold(
       backgroundColor: isDarkMode ? Colors.grey.shade900 : Colors.grey.shade50,
       appBar: AppBar(
@@ -38,37 +38,44 @@ class BreastCancerEducationScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Medical Disclaimer
+            _buildMedicalDisclaimer(context),
+            const SizedBox(height: 24),
+
             // Header Section
             _buildHeaderSection(context),
             const SizedBox(height: 24),
-            
+
             // Understanding Breast Cancer
             _buildUnderstandingSection(context),
             const SizedBox(height: 24),
-            
+
             // Risk Factors
             _buildRiskFactorsSection(context),
             const SizedBox(height: 24),
-            
+
             // Signs & Symptoms
             _buildSymptomsSection(context),
             const SizedBox(height: 24),
-            
+
             // Prevention Tips
             _buildPreventionSection(context),
             const SizedBox(height: 24),
-            
+
             // Healthy Lifestyle
             _buildHealthyLifestyleSection(context),
             const SizedBox(height: 24),
-            
+
             // Early Detection
             _buildEarlyDetectionSection(context),
             const SizedBox(height: 24),
-            
+
             // Support & Resources
             _buildSupportSection(context),
             const SizedBox(height: 32),
+
+            // Citations
+            _buildCitationsSection(context),
           ],
         ),
       ),
@@ -290,14 +297,14 @@ class BreastCancerEducationScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           
-          _buildRiskFactorItem('Faktor Genetik', 'Riwayat keluarga dengan kanker payudara meningkatkan risiko 2x lipat', Colors.red, context),
-          _buildRiskFactorItem('Usia', 'Risiko meningkat setelah usia 40 tahun, 75% kasus terjadi di atas 50 tahun', Colors.orange, context),
-          _buildRiskFactorItem('Jenis Kelamin', 'Wanita memiliki risiko lebih tinggi, namun pria juga bisa terkena', Colors.purple, context),
-          _buildRiskFactorItem('Radiasi', 'Paparan radiasi di area dada dapat meningkatkan risiko', Colors.blue, context),
-          _buildRiskFactorItem('Faktor Hormonal', 'Terapi hormon, menstruasi dini, atau menopause terlambat', Colors.green, context),
-          _buildRiskFactorItem('Riwayat Kanker', 'Riwayat kanker payudara sebelumnya meningkatkan risiko', Colors.teal, context),
-          _buildRiskFactorItem('Obesitas', 'Kelebihan berat badan setelah menopause meningkatkan risiko', Colors.brown, context),
-          _buildRiskFactorItem('Gaya Hidup', 'Merokok, konsumsi alkohol, dan kurang aktivitas fisik', Colors.grey, context),
+          _buildRiskFactorItem('Faktor Genetik', 'Riwayat keluarga dengan kanker payudara meningkatkan risiko 2x lipat (Sumber: American Cancer Society)', Colors.red, context),
+          _buildRiskFactorItem('Usia', 'Risiko meningkat setelah usia 40 tahun, 75% kasus terjadi di atas 50 tahun (Sumber: WHO)', Colors.orange, context),
+          _buildRiskFactorItem('Jenis Kelamin', 'Wanita memiliki risiko lebih tinggi, namun pria juga bisa terkena (Sumber: Mayo Clinic)', Colors.purple, context),
+          _buildRiskFactorItem('Radiasi', 'Paparan radiasi di area dada dapat meningkatkan risiko (Sumber: Kemenkes RI)', Colors.blue, context),
+          _buildRiskFactorItem('Faktor Hormonal', 'Terapi hormon, menstruasi dini, atau menopause terlambat (Sumber: American Cancer Society)', Colors.green, context),
+          _buildRiskFactorItem('Riwayat Kanker', 'Riwayat kanker payudara sebelumnya meningkatkan risiko (Sumber: WHO)', Colors.teal, context),
+          _buildRiskFactorItem('Obesitas', 'Kelebihan berat badan setelah menopause meningkatkan risiko (Sumber: Mayo Clinic)', Colors.brown, context),
+          _buildRiskFactorItem('Gaya Hidup', 'Merokok, konsumsi alkohol, dan kurang aktivitas fisik (Sumber: Kemenkes RI)', Colors.grey, context),
         ],
       ),
     );
@@ -355,13 +362,13 @@ class BreastCancerEducationScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           
-          _buildSymptomItem('Benjolan pada Payudara', 'Benjolan keras, tidak teratur, dan tidak sakit', Icons.circle, context),
-          _buildSymptomItem('Benjolan pada Ketiak', 'Benjolan di area ketiak yang tidak hilang', Icons.circle, context),
-          _buildSymptomItem('Perubahan Bentuk & Ukuran', 'Payudara terlihat asimetris atau berubah ukuran', Icons.circle, context),
-          _buildSymptomItem('Keluarnya Cairan dari Puting', 'Cairan berdarah atau bening dari puting', Icons.circle, context),
-          _buildSymptomItem('Perubahan pada Puting', 'Puting tertarik ke dalam atau berubah warna', Icons.circle, context),
-          _buildSymptomItem('Kulit Berkerut', 'Kulit payudara seperti kulit jeruk atau berkerut', Icons.circle, context),
-          _buildSymptomItem('Tanda Penyebaran', 'Nyeri tulang, sesak napas, atau penurunan berat badan', Icons.circle, context),
+          _buildSymptomItem('Benjolan pada Payudara', 'Benjolan keras, tidak teratur, dan tidak sakit (Sumber: Mayo Clinic)', Icons.circle, context),
+          _buildSymptomItem('Benjolan pada Ketiak', 'Benjolan di area ketiak yang tidak hilang (Sumber: American Cancer Society)', Icons.circle, context),
+          _buildSymptomItem('Perubahan Bentuk & Ukuran', 'Payudara terlihat asimetris atau berubah ukuran (Sumber: WHO)', Icons.circle, context),
+          _buildSymptomItem('Keluarnya Cairan dari Puting', 'Cairan berdarah atau bening dari puting (Sumber: Kemenkes RI)', Icons.circle, context),
+          _buildSymptomItem('Perubahan pada Puting', 'Puting tertarik ke dalam atau berubah warna (Sumber: Mayo Clinic)', Icons.circle, context),
+          _buildSymptomItem('Kulit Berkerut', 'Kulit payudara seperti kulit jeruk atau berkerut (Sumber: American Cancer Society)', Icons.circle, context),
+          _buildSymptomItem('Tanda Penyebaran', 'Nyeri tulang, sesak napas, atau penurunan berat badan (Sumber: WHO)', Icons.circle, context),
         ],
       ),
     );
@@ -419,12 +426,12 @@ class BreastCancerEducationScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           
-          _buildPreventionItem('Lakukan SADARI Bulanan', 'Periksa payudara sendiri setiap bulan setelah menstruasi', Icons.self_improvement, context),
-          _buildPreventionItem('Mammografi Rutin', 'Wanita 40+ tahun: mammografi tahunan', Icons.camera_alt, context),
-          _buildPreventionItem('Jaga Berat Badan Ideal', 'Obesitas meningkatkan risiko kanker payudara', Icons.monitor_weight, context),
-          _buildPreventionItem('Hindari Alkohol & Rokok', 'Batasi konsumsi alkohol dan hindari merokok', Icons.smoke_free, context),
-          _buildPreventionItem('Aktif Secara Fisik', 'Olahraga teratur minimal 150 menit per minggu', Icons.directions_run, context),
-          _buildPreventionItem('Makan Sehat & Bergizi', 'Konsumsi sayuran, buah, dan hindari makanan olahan', Icons.restaurant, context),
+          _buildPreventionItem('Lakukan BreastLens Bulanan', 'Periksa payudara sendiri setiap bulan setelah menstruasi (Sumber: Kemenkes RI)', Icons.self_improvement, context),
+          _buildPreventionItem('Mammografi Rutin', 'Wanita 40+ tahun: mammografi tahunan (Sumber: American Cancer Society)', Icons.camera_alt, context),
+          _buildPreventionItem('Jaga Berat Badan Ideal', 'Obesitas meningkatkan risiko kanker payudara (Sumber: WHO)', Icons.monitor_weight, context),
+          _buildPreventionItem('Hindari Alkohol & Rokok', 'Batasi konsumsi alkohol dan hindari merokok (Sumber: Mayo Clinic)', Icons.smoke_free, context),
+          _buildPreventionItem('Aktif Secara Fisik', 'Olahraga teratur minimal 150 menit per minggu (Sumber: American Cancer Society)', Icons.directions_run, context),
+          _buildPreventionItem('Makan Sehat & Bergizi', 'Konsumsi sayuran, buah, dan hindari makanan olahan (Sumber: WHO)', Icons.restaurant, context),
         ],
       ),
     );
@@ -483,7 +490,7 @@ class BreastCancerEducationScreen extends StatelessWidget {
           const SizedBox(height: 16),
           
           // Diet Tips
-          _buildLifestyleCategory('🍎 Pola Makan Sehat', [
+          _buildLifestyleCategory('🍎 Pola Makan Sehat (Sumber: WHO, American Cancer Society)', [
             'Konsumsi 5-9 porsi sayuran dan buah per hari',
             'Pilih biji-bijian utuh daripada produk olahan',
             'Batasi daging merah dan daging olahan',
@@ -495,7 +502,7 @@ class BreastCancerEducationScreen extends StatelessWidget {
           const SizedBox(height: 16),
           
           // Exercise Tips
-          _buildLifestyleCategory('🏃‍♀️ Aktivitas Fisik', [
+          _buildLifestyleCategory('🏃‍♀️ Aktivitas Fisik (Sumber: American Cancer Society)', [
             'Olahraga aerobik 150 menit per minggu',
             'Latihan kekuatan 2-3 kali per minggu',
             'Aktivitas harian: naik tangga, berjalan kaki',
@@ -507,7 +514,7 @@ class BreastCancerEducationScreen extends StatelessWidget {
           const SizedBox(height: 16),
           
           // Stress Management
-          _buildLifestyleCategory('🧘‍♀️ Manajemen Stres', [
+          _buildLifestyleCategory('🧘‍♀️ Manajemen Stres (Sumber: Mayo Clinic)', [
             'Praktik teknik relaksasi (deep breathing)',
             'Lakukan hobi yang menyenangkan',
             'Jaga hubungan sosial yang positif',
@@ -599,10 +606,10 @@ class BreastCancerEducationScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12),
-                _buildDetectionBenefit('Tingkat Kesembuhan Tinggi', 'Deteksi dini meningkatkan peluang kesembuhan hingga 95%', context),
-                _buildDetectionBenefit('Pengobatan Lebih Mudah', 'Kanker stadium awal lebih mudah diobati', context),
-                _buildDetectionBenefit('Biaya Pengobatan Lebih Rendah', 'Mencegah komplikasi yang memerlukan perawatan intensif', context),
-                _buildDetectionBenefit('Kualitas Hidup Lebih Baik', 'Menghindari efek samping pengobatan yang berat', context),
+                _buildDetectionBenefit('Tingkat Kesembuhan Tinggi', 'Deteksi dini meningkatkan peluang kesembuhan hingga 95% (Sumber: American Cancer Society)', context),
+                _buildDetectionBenefit('Pengobatan Lebih Mudah', 'Kanker stadium awal lebih mudah diobati (Sumber: WHO)', context),
+                _buildDetectionBenefit('Biaya Pengobatan Lebih Rendah', 'Mencegah komplikasi yang memerlukan perawatan intensif (Sumber: Kemenkes RI)', context),
+                _buildDetectionBenefit('Kualitas Hidup Lebih Baik', 'Menghindari efek samping pengobatan yang berat (Sumber: Mayo Clinic)', context),
               ],
             ),
           ),
@@ -618,9 +625,9 @@ class BreastCancerEducationScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          _buildScheduleItem('20-39 tahun', 'SADARI bulanan + pemeriksaan klinis setiap 3 tahun', context),
-          _buildScheduleItem('40-49 tahun', 'SADARI bulanan + mammografi setiap 1-2 tahun', context),
-          _buildScheduleItem('50+ tahun', 'SADARI bulanan + mammografi tahunan', context),
+          _buildScheduleItem('20-39 tahun', 'BreastLens bulanan + pemeriksaan klinis setiap 3 tahun (Sumber: American Cancer Society)', context),
+          _buildScheduleItem('40-49 tahun', 'BreastLens bulanan + mammografi setiap 1-2 tahun (Sumber: WHO)', context),
+          _buildScheduleItem('50+ tahun', 'BreastLens bulanan + mammografi tahunan (Sumber: Kemenkes RI)', context),
         ],
       ),
     );
@@ -1035,7 +1042,7 @@ class BreastCancerEducationScreen extends StatelessWidget {
 
   Widget _buildSupportItem(String title, String description, IconData icon, BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    
+
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
@@ -1083,4 +1090,192 @@ class BreastCancerEducationScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildMedicalDisclaimer(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.red.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Colors.red.withOpacity(0.3),
+          width: 2,
+        ),
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              const Icon(
+                Icons.warning_amber_rounded,
+                color: Colors.red,
+                size: 28,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  'Peringatan Medis Penting',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            'Informasi dalam aplikasi ini bukan pengganti nasihat medis profesional. Selalu konsultasikan dengan dokter spesialis untuk diagnosis dan pengobatan yang akurat. Aplikasi ini hanya untuk skrining awal dan edukasi.',
+            style: TextStyle(
+              fontSize: 14,
+              color: isDarkMode ? Colors.white : Colors.black,
+              height: 1.5,
+            ),
+            textAlign: TextAlign.justify,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCitationsSection(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: isDarkMode ? Colors.grey.shade800 : Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: isDarkMode ? Colors.grey.shade600 : Colors.grey.shade300,
+          width: 1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: isDarkMode ? Colors.black.withOpacity(0.3) : Colors.grey.withOpacity(0.1),
+            spreadRadius: 1,
+            blurRadius: 3,
+            offset: const Offset(0, 1),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const Icon(
+                  Icons.library_books,
+                  color: Colors.white,
+                  size: 16,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Text(
+                'Sumber & Referensi',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          _buildCitationItem(
+            'World Health Organization (WHO)',
+            'Breast Cancer Facts & Figures',
+            'https://www.who.int/news-room/fact-sheets/detail/breast-cancer',
+            context,
+          ),
+          _buildCitationItem(
+            'American Cancer Society',
+            'Breast Cancer Risk Factors',
+            'https://www.cancer.org/cancer/types/breast-cancer/risk-and-prevention.html',
+            context,
+          ),
+          _buildCitationItem(
+            'Kementerian Kesehatan Republik Indonesia',
+            'Panduan Deteksi Dini Kanker Payudara',
+            'https://www.kemkes.go.id/',
+            context,
+          ),
+          _buildCitationItem(
+            'Mayo Clinic',
+            'Breast Cancer Symptoms & Causes',
+            'https://www.mayoclinic.org/diseases-conditions/breast-cancer/symptoms-causes/syc-20352470',
+            context,
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Informasi medis dalam aplikasi ini didasarkan pada sumber-sumber terpercaya di atas. Untuk informasi terkini, kunjungi situs resmi organisasi kesehatan.',
+            style: TextStyle(
+              fontSize: 12,
+              color: isDarkMode ? Colors.grey.shade300 : Colors.grey.shade600,
+              fontStyle: FontStyle.italic,
+              height: 1.4,
+            ),
+            textAlign: TextAlign.justify,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCitationItem(String organization, String title, String url, BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: isDarkMode ? Colors.grey.shade700 : Colors.grey.shade50,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: isDarkMode ? Colors.grey.shade600 : Colors.grey.shade300,
+          width: 1,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            organization,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: isDarkMode ? Colors.white : Colors.black,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 13,
+              color: isDarkMode ? Colors.grey.shade300 : Colors.grey.shade700,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            url,
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.blue,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

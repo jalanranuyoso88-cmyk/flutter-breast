@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/sadari_guide.dart';
+import '../models/breastlens_guide.dart';
 
 class RiskFactorWidget extends StatelessWidget {
   final RiskFactor factor;

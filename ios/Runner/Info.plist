@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>SADARI</string>
+	<string>BreastLens</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>SADARI</string>
+	<string>BreastLens</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -48,15 +48,23 @@
 	
 	<!-- Camera Permission -->
 	<key>NSCameraUsageDescription</key>
-	<string>Aplikasi memerlukan akses kamera untuk mengambil foto untuk analisis kanker payudara.</string>
+	<string>BreastLens memerlukan akses kamera untuk mengambil foto untuk skrining awal. Gambar tidak disimpan secara permanen dan hanya digunakan untuk analisis real-time.</string>
 	
 	<!-- Photo Library Permission -->
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Aplikasi memerlukan akses galeri foto untuk memilih gambar untuk analisis kanker payudara.</string>
+	<string>BreastLens memerlukan akses galeri foto untuk memilih gambar untuk skrining awal. Gambar tidak disimpan secara permanen dan hanya digunakan untuk analisis real-time.</string>
 	
 	<!-- Notification Permission -->
 	<key>NSUserNotificationUsageDescription</key>
-	<string>Aplikasi mengirim pengingat bulanan untuk melakukan SADARI (periksa payudara sendiri).</string>
+	<string>BreastLens mengirim pengingat bulanan untuk melakukan pemeriksaan payudara sendiri. Notifikasi dapat dinonaktifkan kapan saja di pengaturan.</string>
+	
+	<!-- Privacy Policy -->
+	<key>NSPrivacyPolicyURL</key>
+	<string>https://breastlens.app/privacy</string>
+	
+	<!-- Privacy Usage Description -->
+	<key>NSPrivacyUsageDescription</key>
+	<string>BreastLens hanya mengumpulkan data yang diperlukan untuk fungsi aplikasi. Gambar tidak disimpan secara permanen dan data pribadi tidak dibagikan dengan pihak ketiga.</string>
 </dict>
 </plist>
 

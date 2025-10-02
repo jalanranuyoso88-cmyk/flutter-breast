@@ -28,7 +28,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.breast_cancer_detection"
+    namespace "com.breastlens.detection"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -46,7 +46,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.breast_cancer_detection"
+        applicationId "com.breastlens.detection"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
