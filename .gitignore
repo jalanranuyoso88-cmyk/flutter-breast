@@ -32,6 +32,16 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Large build artifacts and binaries
+build/ios/archive/
+build/ios/ipa/
+build/ios/XCBuildData/
+*.xcarchive
+*.ipa
+*.dSYM/
+**/DWARF/
+android/.gradle/
+
 # Symbolication related
 app.*.symbols
 
