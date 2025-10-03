@@ -681,11 +681,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(height: 12),
           Text(
-            'Aplikasi ini hanya untuk skrining awal dan edukasi. BUKAN pengganti konsultasi medis profesional. Selalu konsultasikan dengan dokter untuk evaluasi dan diagnosis yang akurat.',
+            'PERINGATAN MEDIS: Aplikasi ini hanya untuk tujuan edukasi dan skrining awal. BUKAN pengganti konsultasi medis profesional, diagnosis, atau pengobatan. Selalu konsultasikan dengan dokter sebelum membuat keputusan medis.',
             style: TextStyle(
               fontSize: 13,
               color: isDarkMode ? Colors.white : Colors.black,
               height: 1.4,
+              fontWeight: FontWeight.w500,
             ),
             textAlign: TextAlign.justify,
           ),

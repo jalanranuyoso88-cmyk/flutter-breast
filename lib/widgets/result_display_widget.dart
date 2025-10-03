@@ -102,7 +102,7 @@ class ResultDisplayWidget extends StatelessWidget {
               children: [
                 // Title
                 Text(
-                  isCancer ? 'Terdeteksi Indikasi Kanker' : 'Tidak Terdeteksi Indikasi Kanker',
+                  isCancer ? 'Pola Menunjukkan Perhatian Medis' : 'Pola Normal Terdeteksi',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -127,8 +127,8 @@ class ResultDisplayWidget extends StatelessWidget {
                   ),
                   child: Text(
                     isCancer 
-                        ? 'Penting! Berdasarkan analisis kami, terdeteksi adanya indikasi yang mengarah ke kanker pada foto Anda.'
-                        : 'Berdasarkan analisis kami, tidak terdeteksi indikasi kanker pada foto Anda. Tetap lakukan pemeriksaan rutin.',
+                        ? 'AI mendeteksi pola yang memerlukan evaluasi medis profesional. Hasil ini BUKAN diagnosis medis dan hanya untuk tujuan edukasi.'
+                        : 'AI mendeteksi pola normal pada gambar. Tetap lakukan pemeriksaan rutin sesuai rekomendasi dokter.',
                     style: TextStyle(
                       fontSize: 16,
                       color: isDarkMode ? Colors.white : Colors.black,
@@ -147,7 +147,7 @@ class ResultDisplayWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Tingkat Kepercayaan:',
+                          'Tingkat Kecocokan Pola:',
                           style: TextStyle(
                             fontSize: 14,
                             color: isDarkMode ? Colors.white : Colors.black,
@@ -213,7 +213,7 @@ class ResultDisplayWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Hasil ini adalah skrining awal menggunakan teknologi AI dan BUKAN diagnosis medis. Selalu konsultasikan dengan dokter untuk evaluasi profesional dan diagnosis yang akurat.',
+                          'Hasil ini adalah analisis pola menggunakan teknologi AI untuk tujuan edukasi dan skrining awal. BUKAN diagnosis medis. Selalu konsultasikan dengan dokter untuk evaluasi profesional.',
                           style: TextStyle(
                             fontSize: 14,
                             color: isDarkMode ? Colors.white : Colors.black,
@@ -235,7 +235,7 @@ class ResultDisplayWidget extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                'PENTING: Aplikasi ini hanya untuk skrining awal dan edukasi. Selalu konsultasikan dengan dokter untuk evaluasi medis profesional.',
+                                'PERINGATAN MEDIS: Aplikasi ini hanya untuk tujuan edukasi dan skrining awal. BUKAN pengganti konsultasi medis profesional, diagnosis, atau pengobatan. Selalu konsultasikan dengan dokter sebelum membuat keputusan medis.',
                                 style: const TextStyle(
                                   fontSize: 13,
                                   color: Colors.red,
@@ -321,8 +321,9 @@ class ResultDisplayWidget extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 12),
-                        _buildStepItem('1. Konsultasi dengan Dokter', 'Buat janji dengan dokter untuk evaluasi profesional', context),
+                        _buildStepItem('1. Konsultasi dengan Dokter', 'Buat janji dengan dokter untuk evaluasi profesional dan diagnosis yang akurat', context),
                         _buildStepItem('2. Evaluasi Medis Lengkap', 'Dokter akan melakukan pemeriksaan klinis dan merekomendasikan tes yang sesuai jika diperlukan', context),
+                        _buildStepItem('3. Jangan Panik', 'Hasil AI ini hanya untuk edukasi. Diagnosis yang akurat hanya bisa diberikan oleh dokter', context),
                       ],
                     ),
                   ),
@@ -361,7 +362,7 @@ class ResultDisplayWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Jangan terlena! Deteksi dini adalah kunci. Lakukan BreastLens (Periksa Payudara Sendiri) setiap bulan dan jaga gaya hidup sehat.',
+                          'Tetap waspada! Deteksi dini adalah kunci. Lakukan pemeriksaan payudara sendiri setiap bulan dan konsultasikan dengan dokter untuk pemeriksaan rutin.',
                           style: TextStyle(
                             fontSize: 14,
                             color: isDarkMode ? Colors.white : Colors.black,

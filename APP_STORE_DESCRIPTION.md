@@ -27,14 +27,15 @@ BreastLens adalah aplikasi edukasi dan skrining awal untuk membantu meningkatkan
 
 ## ⚠️ MEDICAL DISCLAIMER
 
-**PENTING: Aplikasi ini hanya untuk tujuan edukasi dan skrining awal. Aplikasi ini BUKAN pengganti konsultasi medis profesional, diagnosis, atau pengobatan.**
+**PERINGATAN MEDIS PENTING: Aplikasi ini hanya untuk tujuan edukasi dan skrining awal. Aplikasi ini BUKAN pengganti konsultasi medis profesional, diagnosis, atau pengobatan.**
 
-### Peringatan Medis:
-- Hasil analisis dalam aplikasi ini BUKAN diagnosis medis
-- Selalu konsultasikan dengan dokter untuk evaluasi profesional
-- Jangan menunda pemeriksaan medis berdasarkan hasil aplikasi ini
-- Untuk diagnosis yang akurat, diperlukan pemeriksaan klinis lengkap oleh dokter spesialis
-- Pengembang tidak bertanggung jawab atas keputusan medis yang diambil berdasarkan hasil aplikasi
+### Peringatan Medis Wajib Dibaca:
+- **HASIL ANALISIS BUKAN DIAGNOSIS MEDIS** - Teknologi AI hanya menganalisis pola untuk tujuan edukasi
+- **SELALU KONSULTASIKAN DENGAN DOKTER** - Sebelum membuat keputusan medis apapun
+- **JANGAN MENUNDA PEMERIKSAAN MEDIS** - Berdasarkan hasil aplikasi ini
+- **DIAGNOSIS AKURAT HANYA DARI DOKTER** - Diperlukan pemeriksaan klinis lengkap oleh dokter spesialis
+- **PENGEMBANG TIDAK BERTANGGUNG JAWAB** - Atas keputusan medis yang diambil berdasarkan hasil aplikasi
+- **APLIKASI TIDAK MEMILIKI IZIN REGULASI** - Untuk memberikan diagnosis atau saran pengobatan medis
 
 ### Kapan Harus ke Dokter:
 - Jika menemukan benjolan atau perubahan pada payudara
