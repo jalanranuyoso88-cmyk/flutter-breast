@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BreastCancerEducationScreen extends StatelessWidget {
   const BreastCancerEducationScreen({super.key});
@@ -1265,17 +1266,36 @@ class BreastCancerEducationScreen extends StatelessWidget {
               color: isDarkMode ? Colors.grey.shade300 : Colors.grey.shade700,
             ),
           ),
-          const SizedBox(height: 4),
-          Text(
-            url,
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.blue,
-              decoration: TextDecoration.underline,
+          const SizedBox(height: 8),
+          GestureDetector(
+            onTap: () => _launchURL(url),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              child: Text(
+                url,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ),
           ),
         ],
       ),
     );
+  }
+
+  Future<void> _launchURL(String url) async {
+    try {
+      final Uri uri = Uri.parse(url);
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        print('Could not launch $url');
+      }
+    } catch (e) {
+      print('Error launching URL: $e');
+    }
   }
 }
