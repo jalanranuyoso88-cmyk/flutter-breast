@@ -64,7 +64,7 @@ Informasi medis didasarkan pada sumber terpercaya: WHO, American Cancer Society,
 
 **Developer:** KangJaga
 **Email:** jalanranuyoso88@gmail.com
-**Version:** 4.0.8
+**Version:** 4.0.9
 
 **PENTING: Aplikasi ini hanya untuk edukasi dan skrining awal. BUKAN diagnosis medis. Selalu konsultasikan dengan dokter untuk evaluasi profesional.**
 
