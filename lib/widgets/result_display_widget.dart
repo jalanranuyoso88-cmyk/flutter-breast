@@ -140,6 +140,56 @@ class ResultDisplayWidget extends StatelessWidget {
                 
                 const SizedBox(height: 16),
                 
+                // Kesimpulan
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: isCancer ? Colors.red.withOpacity(0.15) : Colors.green.withOpacity(0.15),
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: isCancer ? Colors.red.withOpacity(0.4) : Colors.green.withOpacity(0.4),
+                      width: 2,
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        'KESIMPULAN:',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: isCancer ? Colors.red : Colors.green,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        isCancer ? 'TERDETEKSI INDIKASI KANKER' : 'TIDAK TERDETEKSI INDIKASI KANKER',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: isCancer ? Colors.red : Colors.green,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        isCancer 
+                            ? 'Berdasarkan analisis AI, terdeteksi pola yang mengarah ke kanker. Segera konsultasikan dengan dokter untuk evaluasi medis profesional.'
+                            : 'Berdasarkan analisis AI, tidak terdeteksi pola yang mengarah ke kanker. Tetap lakukan pemeriksaan rutin.',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: isDarkMode ? Colors.white : Colors.black,
+                          height: 1.4,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+                
+                const SizedBox(height: 16),
+                
                 // Confidence Bar
                 Column(
                   children: [
