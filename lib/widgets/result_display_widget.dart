@@ -164,7 +164,7 @@ class ResultDisplayWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        isCancer ? 'TERDETEKSI INDIKASI KANKER' : 'TIDAK TERDETEKSI INDIKASI KANKER',
+                        isCancer ? 'POLA MEMERLUKAN EVALUASI MEDIS' : 'POLA NORMAL TERDETEKSI',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -175,8 +175,8 @@ class ResultDisplayWidget extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         isCancer 
-                            ? 'Berdasarkan analisis AI, terdeteksi pola yang mengarah ke kanker. Segera konsultasikan dengan dokter untuk evaluasi medis profesional.'
-                            : 'Berdasarkan analisis AI, tidak terdeteksi pola yang mengarah ke kanker. Tetap lakukan pemeriksaan rutin.',
+                            ? 'AI mendeteksi pola yang memerlukan evaluasi medis profesional. Hasil ini BUKAN diagnosis medis. Segera konsultasikan dengan dokter untuk evaluasi yang akurat.'
+                            : 'AI mendeteksi pola normal pada gambar. Tetap lakukan pemeriksaan rutin sesuai rekomendasi dokter.',
                         style: TextStyle(
                           fontSize: 14,
                           color: isDarkMode ? Colors.white : Colors.black,
