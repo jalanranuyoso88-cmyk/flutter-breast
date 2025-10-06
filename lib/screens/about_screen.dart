@@ -143,7 +143,7 @@ class AboutScreen extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'Version 4.0.6',
+            'Version 4.0.8',
             style: TextStyle(
               fontSize: 14,
               color: isDarkMode ? Colors.grey.shade300 : Colors.grey.shade600,
@@ -851,15 +851,11 @@ class AboutScreen extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: _buildAccuracyCard('85%+', 'Overall Accuracy', context),
+                child: _buildAccuracyCard('87.6%', 'Overall Accuracy', context),
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: _buildAccuracyCard('90%+', 'Sensitivity', context),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: _buildAccuracyCard('80%+', 'Specificity', context),
+                child: _buildAccuracyCard('91.3%', 'Sensitivity', context),
               ),
             ],
           ),
@@ -1297,7 +1293,8 @@ class AboutScreen extends StatelessWidget {
               children: [
                 _buildDeveloperInfo('Developed by:', 'KangJaga', context),
                 _buildDeveloperInfo('Contact:', 'jalanranuyoso88@gmail.com', context),
-                _buildDeveloperInfo('Version:', '4.0.6 (2025)', context),
+                _buildDeveloperInfo('Version:', '4.0.8 (2025)', context),
+                _buildDeveloperInfo('Support:', 'https://kangjaga.github.io/breastlens-support', context),
               ],
             ),
           ),
